@@ -1,13 +1,15 @@
 # Course3-Week4-Project
 
-HOW THE SCRIPT WORKS
+This README file contains a precise description of how the run_analysis script works
 
-The script is divided into sections based on each part of the assignment.
+The  script is divided into 5 main parts that tidy the dataset that was specified in the "Getting and Cleaning data" week 4 assignment.
 
-The first part involves downloading the file and renaming each of the data tables for easier use. The varible in "ytest/train" is the "activityID" and "subtest/train" is the "subjectID". The names of the columns in "xtrain/test" need to be corrected and match the names provided in the second column of "features.txt". Lastly, the sections of test and train are combined into one data frame.
+Part 1 of the code involves setting the working directory and loading the training and test datasets into two individual dataframes and renaming all the data tables for easier use inthe next steps. The "ytest/train" datatables contain one variable called activity and subject was the variable in "subtest/train". The names of the columns in "xtrain/test" were corrected and matched with the names that were provided in the second column of "features.txt" table. At the end the two dataframes (test and train) were combined into one dataframe using the cbind function.
 
-To replace the activityID with the actual activity the activity labels file needed the columns to be renamed and then the activities will be substituted with the code.
+Part 2 of the code involved extracting the mean and standard deviations of all columns in the data set. clean_m_s dataframe contains the mean and standard deviations of all the columns of the data set.
 
-Since the variable names that needed to be changed had common substitutions and were in multiple variable names, to prevent from having to rename each of the titles one-by-one I used gsub so they would all get changed at once.
+Part 3 of the code appropriately label all the activities with the actual activity names using the activitylabels metadata file. At the end the numeric values in the "Activity" column were substituted with actual activity name. In the process, "Activity" column was chnaged from numeric to character in order for the column to accept activity names using the activitylabels metadata. as.factor function was used to factor the activity varaible in the data set.
 
-By using the group_by funciton I was able to take the dataset and group it by subjectID and activityID making sure to put subjectID first so it is organized by it first. The the summarize_all takes the dataset and applies the mean function which finds the mean values of each activity for each subject.
+Part 4 of the code appropriately label the list of columns in the clean_m_s dataframe containing mean and standard deviations. gsub function was used several times to make the varaible names more descriptive. 
+
+Part 5 of the code uses the group_by funciton to take the dataset and group it by Subject first and then Activity so that the data set is organized by "Subject" first. summarize_all function was used to summarize the entire dataset by applyig the mean function and calculating the mean of each activity for each subject in the dataset. 
